@@ -1,4 +1,5 @@
-# Updated the Jessie image with GeoIP2 support, via https://github.com/leev/ngx_http_geoip2_module 
+## Updated the Jessie image with GeoIP2 support, via https://github.com/leev/ngx_http_geoip2_module
+Must be built with `--build-arg GEOIP_LICENSE=<your-license>`
 ---
 # docker-openresty - Docker tooling for OpenResty
 
