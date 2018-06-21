@@ -56,24 +56,24 @@ ENV GEOIP_DIR /usr/local/share/GeoIP
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-  git \
-  make \
-  build-essential \
-  ca-certificates \
-  curl \
-  gettext-base \
-  libgd-dev \
-  libncurses5-dev \
-  libperl-dev \
-  libreadline-dev \
-  libxslt1-dev \
-  perl \
-  unzip \
-  zlib1g-dev \
-  autoconf \
-  automake \
-  procps \
-  dh-autoreconf
+    git \
+    make \
+    build-essential \
+    ca-certificates \
+    curl \
+    gettext-base \
+    libgd-dev \
+    libncurses5-dev \
+    libperl-dev \
+    libreadline-dev \
+    libxslt1-dev \
+    perl \
+    unzip \
+    zlib1g-dev \
+    autoconf \
+    automake \
+    procps \
+    dh-autoreconf
 
 # Download GeoIP2 Nginx Module
 RUN git clone https://github.com/leev/ngx_http_geoip2_module.git /tmp/ngx_http_geoip2_module
@@ -102,8 +102,8 @@ RUN GEOLITE_CITY=`tar -xzvf GeoLite2-City.tar.gz | head -1 | cut -f1 -d"/"` && \
 
 RUN curl -k -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoIP2-Connection-Type&suffix=tar.gz&license_key=${GEOIP_LICENSE}" -o GeoIP2-Connection-Type.tar.gz
 RUN GEOIP_CONN=`tar -xzvf GeoIP2-Connection-Type.tar.gz | head -1 | cut -f1 -d"/"` && \
-tar -xzvf GeoIP2-Connection-Type.tar.gz && \
-rm GeoIP2-Connection-Type.tar.gz && mv $GEOIP_CONN/GeoIP2-Connection-Type.mmdb $GEOIP_DIR/GeoIP2-Connection-Type.mmdb
+  tar -xzvf GeoIP2-Connection-Type.tar.gz && \
+  rm GeoIP2-Connection-Type.tar.gz && mv $GEOIP_CONN/GeoIP2-Connection-Type.mmdb $GEOIP_DIR/GeoIP2-Connection-Type.mmdb
 
 RUN cd /tmp \
     && curl -fSL https://www.openssl.org/source/openssl-${RESTY_OPENSSL_VERSION}.tar.gz -o openssl-${RESTY_OPENSSL_VERSION}.tar.gz \
